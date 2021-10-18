@@ -59,7 +59,7 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 #exec(open('../conf/paramexplo_blueprints.py').read())
 #execfile("../conf/paramexplo_blueprints.py")
 blueprints = run_blueprints()
-
+print(blueprints)
 methodblueprint = blueprints[method_name]
 
 
