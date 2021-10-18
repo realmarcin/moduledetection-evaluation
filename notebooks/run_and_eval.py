@@ -25,7 +25,7 @@ import shutil
 
 import os
 
-import run from paramexplo_blueprints
+from paramexplo_blueprints import run_blueprints
 
 conf_folder = "conf/"
 
