@@ -604,4 +604,5 @@ def run_blueprints():
                                             param not in methodparams_modulenumber[method]]
         methodparamsoi[method + "_auto"].append("cvi")
 
+    print(blueprints)
     blueprints
