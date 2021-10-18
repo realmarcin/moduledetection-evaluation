@@ -52,9 +52,9 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 # method_name = "meanshift"
 
 #sys.path.insert(1, '../conf/')
-#os.system("run ../conf/paramexplo_blueprints.py")
+os.system("python ../conf/paramexplo_blueprints.py")
 #exec(open('../conf/paramexplo_blueprints.py').read())
-execfile("../conf/paramexplo_blueprints.py")
+#execfile("../conf/paramexplo_blueprints.py")
 methodblueprint = blueprints[method_name]
 
 
