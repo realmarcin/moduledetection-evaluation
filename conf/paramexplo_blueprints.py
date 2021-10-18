@@ -607,3 +607,4 @@ def run_blueprints():
         methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if
                                             param not in methodparams_modulenumber[method]]
         methodparamsoi[method + "_auto"].append("cvi")
+        methodparamsoi
