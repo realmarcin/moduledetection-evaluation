@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.insert(0,os.path.abspath("../lib/"))
+sys.path.insert(1, '../conf/')
 
 import json
 
@@ -23,6 +24,8 @@ import itertools
 import shutil
 
 import os
+
+import run from paramexplo_blueprints
 
 conf_folder = "conf/"
 
@@ -51,10 +54,12 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 # method_name = "spectral_biclust" # top biclustering method
 # method_name = "meanshift"
 
-#sys.path.insert(1, '../conf/')
-os.system("python ../conf/paramexplo_blueprints.py")
+
+#blueprints = os.system("python ../conf/paramexplo_blueprints.py")
 #exec(open('../conf/paramexplo_blueprints.py').read())
 #execfile("../conf/paramexplo_blueprints.py")
+blueprints = run_blueprints()
+
 methodblueprint = blueprints[method_name]
 
 

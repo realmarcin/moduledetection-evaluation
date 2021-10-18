@@ -574,7 +574,7 @@ methodparams_modulenumber = {
     "nmf_max":["k"],
     "nmf_tail":["k"],
 
-    "spectral_biclust":["n", "ngenes"],
+    "spectral_biclust":["n", "ngenes"],d
     "isa":["thr_col", "thr_row"],
     "biforce":["t"],
     "qubic":["tolerance"],
@@ -600,3 +600,10 @@ methodparams_modulenumber = {
 for method in methodparams_modulenumber:
     methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if param not in methodparams_modulenumber[method]]
     methodparamsoi[method + "_auto"].append("cvi")
+
+
+def run_blueprints():
+    for method in methodparams_modulenumber:
+        methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if
+                                            param not in methodparams_modulenumber[method]]
+        methodparamsoi[method + "_auto"].append("cvi")
