@@ -6,10 +6,10 @@ import json
 
 from util import JSONExtendedEncoder
 
-%load_ext autoreload
-%autoreload 2
+#%load_ext autoreload
+#%autoreload 2
 
-%matplotlib inline
+#%matplotlib inline
 from matplotlib.pyplot import *
 
 import pandas as pd
