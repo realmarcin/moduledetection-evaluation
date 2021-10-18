@@ -49,7 +49,7 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 # method_name = "spectral_biclust" # top biclustering method
 # method_name = "meanshift"
 
-os.system.("run ../conf/paramexplo_blueprints.py")
+os.system("run ../conf/paramexplo_blueprints.py")
 methodblueprint = blueprints[method_name]
 
 
