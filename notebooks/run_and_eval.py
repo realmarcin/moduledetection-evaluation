@@ -28,6 +28,8 @@ conf_folder = "conf/"
 
 
 
+
+
 # datasets to run
 datasetnames = [
     "ecoli_colombos",
@@ -49,7 +51,10 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 # method_name = "spectral_biclust" # top biclustering method
 # method_name = "meanshift"
 
-os.system("run ../conf/paramexplo_blueprints.py")
+#sys.path.insert(1, '../conf/')
+#os.system("run ../conf/paramexplo_blueprints.py")
+#exec(open('../conf/paramexplo_blueprints.py').read())
+execfile("../conf/paramexplo_blueprints.py")
 methodblueprint = blueprints[method_name]
 
 
