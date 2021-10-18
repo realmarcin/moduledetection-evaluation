@@ -164,6 +164,4 @@ modeval.load(settings_name)
 
 modeval.scores
 
-file1 = open("modeval_scores.txt","a")
-file1.write(modeval.scores)
-file1.close()
+modeval.scores.to_csv('modeval.scores.tsv', index=False, sep="\t")
