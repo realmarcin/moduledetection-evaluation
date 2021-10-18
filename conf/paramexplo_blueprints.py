@@ -481,10 +481,6 @@ blueprints = {
 
 }
 
-for blueprint in blueprints.values():
-    if "dynparams" not in blueprint.keys():
-        blueprint["dynparams"] = {}
-
 # what parameters does every method have?
 methodparamsoi = {
     "flame":["knn", "threshold"],
@@ -597,12 +593,16 @@ methodparams_modulenumber = {
     "baseline_scalefree":[]
 }
 
-for method in methodparams_modulenumber:
-    methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if param not in methodparams_modulenumber[method]]
-    methodparamsoi[method + "_auto"].append("cvi")
+#for method in methodparams_modulenumber:
+#    methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if param not in methodparams_modulenumber[method]]
+#    methodparamsoi[method + "_auto"].append("cvi")
 
 
 def run_blueprints():
+    for blueprint in blueprints.values():
+        if "dynparams" not in blueprint.keys():
+            blueprint["dynparams"] = {}
+            
     for method in methodparams_modulenumber:
         methodparamsoi[method + "_auto"] = [param for param in methodparamsoi[method] if
                                             param not in methodparams_modulenumber[method]]
