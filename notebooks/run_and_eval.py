@@ -25,7 +25,7 @@ import shutil
 
 import os
 
-from paramexplo_blueprints import run_blueprints
+import paramexplo_blueprints
 
 conf_folder = "conf/"
 
@@ -58,7 +58,7 @@ method_name = "dummy" # use the dummy method to check if everything works correc
 #blueprints = os.system("python ../conf/paramexplo_blueprints.py")
 #exec(open('../conf/paramexplo_blueprints.py').read())
 #execfile("../conf/paramexplo_blueprints.py")
-blueprints = run_blueprints()
+blueprints = paramexplo_blueprints.run_blueprints()
 print(blueprints)
 methodblueprint = blueprints[method_name]
 
