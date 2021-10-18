@@ -574,7 +574,7 @@ methodparams_modulenumber = {
     "nmf_max":["k"],
     "nmf_tail":["k"],
 
-    "spectral_biclust":["n", "ngenes"],d
+    "spectral_biclust":["n", "ngenes"],
     "isa":["thr_col", "thr_row"],
     "biforce":["t"],
     "qubic":["tolerance"],
