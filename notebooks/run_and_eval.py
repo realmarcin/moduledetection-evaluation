@@ -53,8 +53,6 @@ os.system("run ../conf/paramexplo_blueprints.py")
 methodblueprint = blueprints[method_name]
 
 
-Generate different parameter settings using a grid-search.
-
 #%%
 
 params_folder = "conf/paramexplo/" + method_name + "/"
