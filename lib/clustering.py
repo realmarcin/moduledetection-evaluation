@@ -58,6 +58,11 @@ def meanshift(E, bandwidth=None, cluster_all=True, **kwargs):
 
     return modules
 
+
+def _MAK(E, source, stdcutoff):
+    modules = []
+    return modules
+
 def baseline_permuted(modules, **kwargs):
     modules = Modules(modules)
     modules = modules.shuffle()
@@ -77,3 +82,4 @@ def convert_modules2labels(modules, G):
         for g in module:
             labels[g] = i
     return labels
+

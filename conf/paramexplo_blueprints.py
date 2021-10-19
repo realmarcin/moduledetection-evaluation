@@ -382,6 +382,12 @@ def run_blueprints():
             },
             "type": "moduledetection"
         },
+        "MAK": {
+            "staticparams": {
+                "method": "MAK"
+            },
+            "type": "moduledetection"
+        },
         "blockcluster": {
             "staticparams": {
                 "method": "blockcluster"
@@ -528,6 +534,7 @@ def run_blueprints():
         "plaid": ["col_release", "row_release", "max_layers"],
         "opsm": ["l"],
         "chengchurch": ["alpha", "delta"],
+        "MAK": [],
         "blockcluster": ["ngenes", "nconditions"],
 
         "genomica": ["n"],
@@ -585,6 +592,7 @@ def run_blueprints():
         "plaid": ["max_layers"],
         "opsm": ["l"],
         "chengchurch": ["delta"],
+        "MAK": [],
 
         "genomica": ["n"],
         "merlin": ["h"],
