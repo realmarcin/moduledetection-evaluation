@@ -91,10 +91,10 @@ for datasetname in datasetnames:
     for setting_ix, methodsetting in enumerate(methodsettings):
         settingid = datasetname + "_" + str(setting_ix)
         settings.append({
-            "dataset_location": "conf/datasets/" + datasetname + ".json",
+            "dataset_location": "../conf/datasets/" + datasetname + ".json",
             "dataset_name": datasetname,
             "method_location": methodsetting["location"],
-            "output_folder": "results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
+            "output_folder": "../results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
