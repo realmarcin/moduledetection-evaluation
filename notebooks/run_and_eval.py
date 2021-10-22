@@ -62,7 +62,7 @@ methodblueprint = blueprints[method_name]
 
 #%%
 
-params_folder = "conf/paramexplo/" + method_name + "/"
+params_folder = "../conf/paramexplo/" + method_name + "/"
 if os.path.exists(params_folder):
     shutil.rmtree( params_folder)
 os.makedirs(params_folder)
