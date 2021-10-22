@@ -1,7 +1,7 @@
 import sys
 import os
-sys.path.insert(0,os.path.abspath("../lib/"))
-sys.path.insert(1, '../conf/')
+sys.path.insert(0,os.path.abspath("lib/"))
+sys.path.insert(1, 'conf/')
 
 import json
 
@@ -62,9 +62,9 @@ methodblueprint = blueprints[method_name]
 #%%
 
 params_folder = "conf/paramexplo/" + method_name + "/"
-if os.path.exists("../" + params_folder):
-    shutil.rmtree("../" + params_folder)
-os.makedirs("../" + params_folder)
+if os.path.exists( params_folder):
+    shutil.rmtree(params_folder)
+os.makedirs( params_folder)
 
 methodsettings = []
 method_locations = []
@@ -78,7 +78,7 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
 
     methodsettings.append(method)
 
-    json.dump(method, open("../" + method["location"], "w"), cls=JSONExtendedEncoder)
+    json.dump(method, open( method["location"], "w"), cls=JSONExtendedEncoder)
 
     method_locations.append(method["location"])
 
@@ -97,15 +97,15 @@ for datasetname in datasetnames:
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
-json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
+json.dump(settings, open("conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
 
 # %%
 
 settings_dataset = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open(setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["method_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open(setting["method_location"]))["params"]) for setting
      in settings])
 
 
