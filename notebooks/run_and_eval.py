@@ -1,7 +1,7 @@
 import sys
 import os
-sys.path.insert(0,os.path.abspath("../lib/"))
-sys.path.insert(1, '../conf/')
+sys.path.insert(0,os.path.abspath("lib/"))
+sys.path.insert(1, 'conf/')
 
 import json
 
@@ -49,16 +49,16 @@ datasetnames = [
 
 # choose the method to evaluate
 # method_name = "dummy" # use the dummy method to check if everything works correctly
-# method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
+ method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
 # method_name = "ica_zscore" # this method runs very slow, but has approx. the highest performance in the benchmark
 # method_name = "spectral_biclust" # top biclustering method
-method_name = "MAK"
+# method_name = "MAK"
 # method_name = "meanshift"
 
 
-#blueprints = os.system("python ../conf/paramexplo_blueprints.py")
-#exec(open('../conf/paramexplo_blueprints.py').read())
-#execfile("../conf/paramexplo_blueprints.py")
+#blueprints = os.system("python conf/paramexplo_blueprints.py")
+#exec(open('conf/paramexplo_blueprints.py').read())
+#execfile("conf/paramexplo_blueprints.py")
 blueprints = paramexplo_blueprints.run_blueprints()
 print(blueprints)
 methodblueprint = blueprints[method_name]
@@ -67,9 +67,9 @@ methodblueprint = blueprints[method_name]
 #%%
 
 params_folder = "conf/paramexplo/" + method_name + "/"
-if os.path.exists("../" + params_folder):
-    shutil.rmtree("../" + params_folder)
-os.makedirs("../" + params_folder)
+if os.path.exists(params_folder):
+    shutil.rmtree( params_folder)
+os.makedirs(params_folder)
 
 methodsettings = []
 method_locations = []
@@ -83,7 +83,7 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
 
     methodsettings.append(method)
 
-    json.dump(method, open("../" + method["location"], "w"), cls=JSONExtendedEncoder)
+    json.dump(method, open( method["location"], "w"), cls=JSONExtendedEncoder)
 
     method_locations.append(method["location"])
 
@@ -102,15 +102,15 @@ for datasetname in datasetnames:
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
-json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
+json.dump(settings, open("conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
 
 # %%
 
 settings_dataset = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open(setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["method_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open( setting["method_location"]))["params"]) for setting
      in settings])
 
 # %%
@@ -118,16 +118,16 @@ settings_method = pd.DataFrame(
 commands = ""
 for i, setting in enumerate(settings):
     # commands += "python scripts/moduledetection.py {method_location} {dataset_location} {output_folder} 0 test\n".format(**setting)
-    commands += "python3 ../scripts/" + methodblueprint[
+    commands += "python3 scripts/" + methodblueprint[
         "type"] + ".py {method_location} {dataset_location} {output_folder}\n".format(**setting)
 
-commands_location = "../tmp/{settings_name}.txt".format(**locals())
-os.makedirs("../" + os.path.dirname(commands_location), exist_ok=True)
-with open("../" + commands_location, "w") as outfile:
+commands_location = "tmp/{settings_name}.txt".format(**locals())
+os.makedirs( os.path.dirname(commands_location), exist_ok=True)
+with open( commands_location, "w") as outfile:
     outfile.write(commands)
 commands_location = "tmp/{settings_name}.txt".format(**locals())
-os.makedirs(os.path.dirname("../tmp/" + commands_location), exist_ok=True)
-with open("../tmp/" + commands_location, "w") as outfile:
+os.makedirs(os.path.dirname("tmp/" + commands_location), exist_ok=True)
+with open("tmp/" + commands_location, "w") as outfile:
     outfile.write(commands)
 
 # script_location = generate_batchcode(commands_location, settings_name, len(settings), {"memory":"10G", "numcores":1}, "biclust_comp2")
