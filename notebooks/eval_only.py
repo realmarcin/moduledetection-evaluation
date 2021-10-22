@@ -109,6 +109,21 @@ settings_method = pd.DataFrame(
      in settings])
 
 
+commands = ""
+for i, setting in enumerate(settings):
+    # commands += "python scripts/moduledetection.py {method_location} {dataset_location} {output_folder} 0 test\n".format(**setting)
+    commands += "python3 scripts/" + methodblueprint[
+        "type"] + ".py {method_location} {dataset_location} {output_folder}\n".format(**setting)
+
+commands_location = "tmp/{settings_name}.txt".format(**locals())
+os.makedirs( os.path.dirname(commands_location), exist_ok=True)
+with open( commands_location, "w") as outfile:
+    outfile.write(commands)
+commands_location = "tmp/{settings_name}.txt".format(**locals())
+os.makedirs(os.path.dirname("tmp/" + commands_location), exist_ok=True)
+with open("tmp/" + commands_location, "w") as outfile:
+    outfile.write(commands)
+
 
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
