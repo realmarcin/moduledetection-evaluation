@@ -62,10 +62,10 @@ methodblueprint = blueprints[method_name]
 
 #%%
 
-params_folder = "../conf/paramexplo/" + method_name + "/"
-if os.path.exists(params_folder):
-    shutil.rmtree( params_folder)
-os.makedirs(params_folder)
+params_folder = "conf/paramexplo/" + method_name + "/"
+if os.path.exists("../" + params_folder):
+    shutil.rmtree("../" +  params_folder)
+os.makedirs("../" + params_folder)
 
 methodsettings = []
 method_locations = []
@@ -79,9 +79,9 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
 
     methodsettings.append(method)
 
-    json.dump(method, open( method["location"], "w"), cls=JSONExtendedEncoder)
+    json.dump(method, open( "../" + method["location"], "w"), cls=JSONExtendedEncoder)
 
-    method_locations.append(method["location"])
+    method_locations.append("../" + method["location"])
 
     i+=1
 
@@ -103,10 +103,10 @@ json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings
 # %%
 
 settings_dataset = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open(setting["dataset_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open( setting["method_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open("../" +  setting["method_location"]))["params"]) for setting
      in settings])
 
 # %%
@@ -118,12 +118,12 @@ for i, setting in enumerate(settings):
         "type"] + ".py {method_location} {dataset_location} {output_folder}\n".format(**setting)
 
 commands_location = "../tmp/{settings_name}.txt".format(**locals())
-os.makedirs( os.path.dirname(commands_location), exist_ok=True)
-with open( commands_location, "w") as outfile:
+os.makedirs(  os.path.dirname(commands_location), exist_ok=True)
+with open(  commands_location, "w") as outfile:
     outfile.write(commands)
 commands_location = "../tmp/{settings_name}.txt".format(**locals())
-os.makedirs(os.path.dirname("../tmp/" + commands_location), exist_ok=True)
-with open("../tmp/" + commands_location, "w") as outfile:
+os.makedirs(os.path.dirname(commands_location), exist_ok=True)
+with open( commands_location, "w") as outfile:
     outfile.write(commands)
 
 # script_location = generate_batchcode(commands_location, settings_name, len(settings), {"memory":"10G", "numcores":1}, "biclust_comp2")
