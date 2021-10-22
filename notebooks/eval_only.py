@@ -1,7 +1,7 @@
 import sys
 import os
-sys.path.insert(0,os.path.abspath("lib/"))
-sys.path.insert(1, 'conf/')
+sys.path.insert(0,os.path.abspath("../lib/"))
+sys.path.insert(1, '../conf/')
 
 import json
 
@@ -27,7 +27,7 @@ import os
 
 import paramexplo_blueprints
 
-conf_folder = "conf/"
+conf_folder = "../conf/"
 
 
 
@@ -61,7 +61,7 @@ methodblueprint = blueprints[method_name]
 
 #%%
 
-params_folder = "conf/paramexplo/" + method_name + "/"
+params_folder = "../conf/paramexplo/" + method_name + "/"
 if os.path.exists( params_folder):
     shutil.rmtree(params_folder)
 os.makedirs( params_folder)
@@ -90,14 +90,14 @@ for datasetname in datasetnames:
     for setting_ix, methodsetting in enumerate(methodsettings):
         settingid = datasetname + "_" + str(setting_ix)
         settings.append({
-            "dataset_location": "conf/datasets/" + datasetname + ".json",
+            "dataset_location": "../conf/datasets/" + datasetname + ".json",
             "dataset_name": datasetname,
             "method_location": methodsetting["location"],
-            "output_folder": "results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
+            "output_folder": "../results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
-json.dump(settings, open("conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
+json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
 
 # %%
 
@@ -111,17 +111,17 @@ settings_method = pd.DataFrame(
 
 commands = ""
 for i, setting in enumerate(settings):
-    # commands += "python scripts/moduledetection.py {method_location} {dataset_location} {output_folder} 0 test\n".format(**setting)
-    commands += "python3 scripts/" + methodblueprint[
+    # commands += "python ../scripts/moduledetection.py {method_location} {dataset_location} {output_folder} 0 test\n".format(**setting)
+    commands += "python3 ../scripts/" + methodblueprint[
         "type"] + ".py {method_location} {dataset_location} {output_folder}\n".format(**setting)
 
-commands_location = "tmp/{settings_name}.txt".format(**locals())
+commands_location = "../tmp/{settings_name}.txt".format(**locals())
 os.makedirs( os.path.dirname(commands_location), exist_ok=True)
 with open( commands_location, "w") as outfile:
     outfile.write(commands)
-commands_location = "tmp/{settings_name}.txt".format(**locals())
-os.makedirs(os.path.dirname("tmp/" + commands_location), exist_ok=True)
-with open("tmp/" + commands_location, "w") as outfile:
+commands_location = "../tmp/{settings_name}.txt".format(**locals())
+os.makedirs(os.path.dirname("../tmp/" + commands_location), exist_ok=True)
+with open("../tmp/" + commands_location, "w") as outfile:
     outfile.write(commands)
 
 
