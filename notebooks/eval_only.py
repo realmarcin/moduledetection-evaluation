@@ -27,8 +27,6 @@ import os
 
 import paramexplo_blueprints
 
-conf_folder = "../conf/"
-
 
 
 # datasets to run
