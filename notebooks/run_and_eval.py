@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(0,os.path.abspath("../lib/"))
+sys.path.insert(0, os.path.abspath("../lib/"))
 sys.path.insert(1, '../conf/')
 
 import json
@@ -106,7 +106,7 @@ settings_dataset = pd.DataFrame(
     [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" +  setting["method_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["method_location"]))["params"]) for setting
      in settings])
 
 # %%
