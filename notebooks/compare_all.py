@@ -10,7 +10,10 @@ import numpy as np
 import pandas as pd
 import json
 
-import paramexplo_blueprints
+import paramexplo_blueprints  # my_module.py
+from importlib import reload # reload
+reload(paramexplo_blueprints)
+
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
 
