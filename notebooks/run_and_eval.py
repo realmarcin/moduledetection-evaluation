@@ -79,9 +79,9 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
 
     methodsettings.append(method)
 
-    json.dump(method, open( "../" + method["location"], "w"), cls=JSONExtendedEncoder)
+    json.dump(method, open(  method["location"], "w"), cls=JSONExtendedEncoder)
 
-    method_locations.append("../" + method["location"])
+    method_locations.append( method["location"])
 
     i+=1
 
