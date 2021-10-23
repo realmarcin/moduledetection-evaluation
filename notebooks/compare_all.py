@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.insert(0,os.path.abspath("../lib/"))
 
 import matplotlib as mpl
 from matplotlib import pyplot as plt
