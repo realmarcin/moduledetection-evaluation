@@ -56,9 +56,9 @@ method_name = "agglom" # this method runs very fast, and has the best performanc
 #exec(open('conf/paramexplo_blueprints.py').read())
 #execfile("conf/paramexplo_blueprints.py")
 blueprints = paramexplo_blueprints.run_blueprints()
-print(blueprints)
+#print(blueprints)
 methodblueprint = blueprints[method_name]
-
+print(methodblueprint)
 
 #%%
 
@@ -91,10 +91,10 @@ for datasetname in datasetnames:
     for setting_ix, methodsetting in enumerate(methodsettings):
         settingid = datasetname + "_" + str(setting_ix)
         settings.append({
-            "dataset_location": "conf/datasets/" + datasetname + ".json",
+            "dataset_location": "../conf/datasets/" + datasetname + ".json",
             "dataset_name": datasetname,
             "method_location": methodsetting["location"],
-            "output_folder": "results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
+            "output_folder": "../results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
