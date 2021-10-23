@@ -91,7 +91,7 @@ for datasetname in datasetnames:
     for setting_ix, methodsetting in enumerate(methodsettings):
         settingid = datasetname + "_" + str(setting_ix)
         settings.append({
-            "dataset_location": "../conf/datasets/" + datasetname + ".json",
+            "dataset_location": "conf/datasets/" + datasetname + ".json",
             "dataset_name": datasetname,
             "method_location": methodsetting["location"],
             "output_folder": "../results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
@@ -103,7 +103,7 @@ json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings
 # %%
 
 settings_dataset = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open(setting["dataset_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open("../" +setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
     [dict(settingid=setting["settingid"], **json.load(open(setting["method_location"]))["params"]) for setting
@@ -115,7 +115,7 @@ commands = ""
 for i, setting in enumerate(settings):
     # commands += "python ../scripts/moduledetection.py {method_location} {dataset_location} {output_folder} 0 test\n".format(**setting)
     commands += "python3 ../scripts/" + methodblueprint[
-        "type"] + ".py {method_location} {dataset_location} {output_folder}\n".format(**setting)
+        "type"] + ".py {method_location} ../{dataset_location} {output_folder}\n".format(**setting)
 
 commands_location = "../tmp/{settings_name}.txt".format(**locals())
 os.makedirs(  os.path.dirname(commands_location), exist_ok=True)
@@ -126,7 +126,7 @@ os.makedirs(os.path.dirname(commands_location), exist_ok=True)
 with open( commands_location, "w") as outfile:
     outfile.write(commands)
 
-# script_location = generate_batchcode(commands_location, settings_name, len(settings), {"memory":"10G", "numcores":1}, "biclust_comp2")
+ script_location = generate_batchcode(commands_location, settings_name, len(settings), {"memory":"10G", "numcores":1}, "biclust_comp2")
 
 # this command can be used on most linux computers to run the different parameter settings in parallel
 #print("parallel -j 4 -a " + commands_location)
