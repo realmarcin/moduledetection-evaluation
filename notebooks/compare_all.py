@@ -10,9 +10,9 @@ import numpy as np
 import pandas as pd
 import json
 
-import paramexplo_blueprints  # my_module.py
-from importlib import reload # reload
-reload(paramexplo_blueprints)
+from paramexplo_blueprints import methodparamsoi
+#from importlib import reload # reload
+#reload(paramexplo_blueprints)
 
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
@@ -101,7 +101,7 @@ for methodname in methodnames:
          setting in settings])
 
     print(methodname)
-    paramsoi = paramexplo_blueprints.methodparamsoi[methodname]
+    paramsoi = methodparamsoi[methodname]
 
     scores = pd.DataFrame()
 
