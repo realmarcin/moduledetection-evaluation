@@ -10,7 +10,7 @@ def score_method(scores):
     methodscores = []
     for ((datasetoi, goldstandardoi), scoresoi), ((datasetor, goldstandardor), scoresor) in product \
             (scores.groupby(["datasetname", "goldstandard"]), scores.groupby(["datasetname", "goldstandard"])):
-        if (datasetor.split("_")[0 ]= ="synth" and datasetoi.split("_")[0 ]! ="synth") or \
+        if (datasetor.split("_")[0 ] == "synth" and datasetoi.split("_")[0 ] != "synth") or \
                 (datasetor.split("_")[0] != "synth" and datasetoi.split("_")[0] == "synth"):
             continue
 
