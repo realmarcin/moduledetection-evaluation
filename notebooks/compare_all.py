@@ -9,6 +9,9 @@ import numpy as np
 import pandas as pd
 import json
 
+import paramexplo_blueprints
+from modulescomparison import ModevalKnownmodules, ModevalCoverage
+
 
 def score_method(scores):
     methodscores = []
