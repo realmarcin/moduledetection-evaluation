@@ -103,10 +103,10 @@ json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings
 # %%
 
 settings_dataset = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open( setting["dataset_location"]))["params"]) for setting
      in settings])
 settings_method = pd.DataFrame(
-    [dict(settingid=setting["settingid"], **json.load(open("../" + setting["method_location"]))["params"]) for setting
+    [dict(settingid=setting["settingid"], **json.load(open(setting["method_location"]))["params"]) for setting
      in settings])
 
 # %%
