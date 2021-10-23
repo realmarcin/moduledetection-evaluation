@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.insert(0,os.path.abspath("../lib/"))
-sys.path.insert(1, '../conf/')
+sys.path.insert(1, os.path.abspath("../conf/"))
 
 import matplotlib as mpl
 from matplotlib import pyplot as plt
@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import json
 
-import paramexplo_blueprints
+from paramexplo_blueprints import methodparamsoi
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
 
