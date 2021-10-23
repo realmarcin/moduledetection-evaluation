@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.insert(0,os.path.abspath("../lib/"))
+sys.path.insert(1, '../conf/')
 
 import matplotlib as mpl
 from matplotlib import pyplot as plt
