@@ -74,7 +74,7 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
     method = {"params":{}}
     method["params"] = methodblueprint["staticparams"].copy()
     method["params"].update(dict(zip(sorted(methodblueprint["dynparams"].keys()), dynparam_combination)))
-    method["location"] = params_folder + str(i) + ".json"
+    method["location"] = "../" + params_folder + str(i) + ".json"
     method["seed"] = 0
 
     methodsettings.append(method)
