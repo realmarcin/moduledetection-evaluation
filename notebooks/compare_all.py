@@ -10,9 +10,22 @@ import numpy as np
 import pandas as pd
 import json
 
-from paramexplo_blueprints import methodparamsoi
+import paramexplo_blueprints
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
+
+# choose the method to evaluate
+# method_name = "dummy" # use the dummy method to check if everything works correctly
+method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
+# method_name = "ica_zscore" # this method runs very slow, but has approx. the highest performance in the benchmark
+# method_name = "spectral_biclust" # top biclustering method
+# method_name = "MAK"
+# method_name = "meanshift"
+
+blueprints = paramexplo_blueprints.run_blueprints()
+#print(blueprints)
+methodblueprint = blueprints[method_name]
+print(methodblueprint)
 
 def score_method(scores):
     methodscores = []
@@ -85,7 +98,7 @@ for methodname in methodnames:
          setting in settings])
 
     print(methodname)
-    paramsoi = methodparamsoi[methodname]
+    paramsoi = paramexplo_blueprints.methodparamsoi[methodname]
 
     scores = pd.DataFrame()
 
