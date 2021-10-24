@@ -31,25 +31,27 @@ import paramexplo_blueprints
 
 # datasets to run
 datasetnames = [
-    "ecoli_colombos",
-    "ecoli_dream5",
-    "yeast_gpl2529",
-    "yeast_dream5",
-    "synth_ecoli_regulondb",
-    "synth_yeast_macisaac",
-    "human_tcga",
-    "human_gtex",
-    "human_seek_gpl5175",
-    "ecoli_precise2"
+    "ecoli_colombos"
 ]
 
+#,
+#    "ecoli_dream5",
+#    "yeast_gpl2529",
+#    "yeast_dream5",
+#    "synth_ecoli_regulondb",
+#    "synth_yeast_macisaac",
+#    "human_tcga",
+#    "human_gtex",
+#    "human_seek_gpl5175",
+#    "ecoli_precise2"
+
 # choose the method to evaluate
-#method_name = "dummy" # use the dummy method to check if everything works correctly
-#method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
-#method_name = "ica_zscore" # this method runs very slow, but has approx. the highest performance in the benchmark
-#method_name = "spectral_biclust" # top biclustering method
+method_name = "dummy" # use the dummy method to check if everything works correctly
+method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
+method_name = "ica_zscore" # this method runs very slow, but has approx. the highest performance in the benchmark
+method_name = "spectral_biclust" # top biclustering method
 method_name = "MAK"
-#method_name = "meanshift"
+method_name = "meanshift"
 
 
 #blueprints = os.system("python conf/paramexplo_blueprints.py")
