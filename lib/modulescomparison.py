@@ -158,11 +158,11 @@ def modevalworker(setting, scores, baseline):
     if baseline:
         baselines = pd.read_csv("../results/modeval_knownmodules/baseline.tsv", index_col=[0, 1, 2])
 
-    modules = Modules(json.load(open("../" + setting["output_folder"] + "modules.json")))
+    modules = Modules(json.load(open(setting["output_folder"] + "modules.json")))
 
-    runinfo = json.load(open("../" + setting["output_folder"] + "runinfo.json"))
+    runinfo = json.load(open(setting["output_folder"] + "runinfo.json"))
 
-    dataset = json.load(open("../" + setting["dataset_location"]))
+    dataset = json.load(open(setting["dataset_location"]))
 
     settingscores = []
 
@@ -258,13 +258,13 @@ class Modeval:
             self.scores_full = json.load(open("../results/{scoring_folder}/{settings_name}.json".format(scoring_folder=scoring_folder, name = name)))
 
 def modeval_coverage_worker(setting, scores, baseline, verbose=False):
-    dataset = json.load(open("../" + setting["dataset_location"]))
+    dataset = json.load(open(setting["dataset_location"]))
 
     if baseline:
         baselines = pd.read_csv("../results/modeval_coverage/baseline.csv", index_col = 0)
 
-    runinfo = json.load(open("../" + setting["output_folder"] + "runinfo.json"))
-    modules = Modules(json.load(open("../" + setting["output_folder"] + "modules.json")))
+    runinfo = json.load(open( setting["output_folder"] + "runinfo.json"))
+    modules = Modules(json.load(open(setting["output_folder"] + "modules.json")))
 
     if verbose: print("▶ " + str(setting["settingid"]))
 
@@ -384,9 +384,9 @@ class ModevalFunctional:
         self.scores = pd.read_table(self.scoring_folder + settings_name + ".tsv", index_col=0)
 
 def modenrichevalworker(setting, scores):
-    dataset = json.load(open("../" + setting["dataset_location"]))
+    dataset = json.load(open( setting["dataset_location"]))
 
-    modules = Modules(json.load(open("../" + setting["output_folder"] + "modules.json")))
+    modules = Modules(json.load(open( setting["output_folder"] + "modules.json")))
 
     settingscores = []
     for gsets_name in dataset["gsets"].keys():
