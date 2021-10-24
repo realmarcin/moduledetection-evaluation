@@ -84,7 +84,7 @@ def score_method(scores):
 
 # %%
 
-methodnames = ["dummy", "agglom", "ica_zscore", "spectral_biclust", "meanshift"]
+methodnames = ["dummy", "agglom", "ica_zscore", "spectral_biclust", "meanshift", "MAK"]
 
 # %%
 
