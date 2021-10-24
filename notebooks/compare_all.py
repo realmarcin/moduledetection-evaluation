@@ -98,7 +98,7 @@ for methodname in methodnames:
         [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for
          setting in settings])
     settings_method = pd.DataFrame(
-        [dict(settingid=setting["settingid"], **json.load(open( setting["method_location"]))["params"]) for
+        [dict(settingid=setting["settingid"], **json.load(open( "../" + setting["method_location"]))["params"]) for
          setting in settings])
 
     print(methodname)
