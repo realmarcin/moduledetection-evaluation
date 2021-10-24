@@ -248,11 +248,17 @@ class Modeval:
         self.settings = settings
 
     def save(self, name, full=True):
+        print("Modeval.save")
+        print(scoring_folder)
+        print(name)
         self.scores.to_csv("../results/{scoring_folder}/{settings_name}.tsv".format(scoring_folder=scoring_folder, name = name), sep="\t")
         if full:
             json.dump(self.scores_full, open("../results/{scoring_folder}/{settings_name}.json".format(scoring_folder=scoring_folder, name = name), "w"), cls=JSONExtendedEncoder)
 
     def load(self, name, full=False):
+        print("Modeval.load")
+        print(scoring_folder)
+        print(name)
         self.scores = pd.read_table("../results/{scoring_folder}/{settings_name}.tsv".format(scoring_folder=scoring_folder, name = name), index_col=0)
         if full:
             self.scores_full = json.load(open("../results/{scoring_folder}/{settings_name}.json".format(scoring_folder=scoring_folder, name = name)))
