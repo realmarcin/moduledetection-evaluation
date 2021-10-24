@@ -10,7 +10,8 @@ import numpy as np
 import pandas as pd
 import json
 
-from paramexplo_blueprints import methodparamsoi
+#from paramexplo_blueprints import methodparamsoi
+import paramexplo_blueprints
 #from importlib import reload # reload
 #reload(paramexplo_blueprints)
 
