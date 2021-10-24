@@ -48,8 +48,8 @@ datasetnames = [
 #method_name = "agglom" # this method runs very fast, and has the best performance among clustering methods
 #method_name = "ica_zscore" # this method runs very slow, but has approx. the highest performance in the benchmark
 #method_name = "spectral_biclust" # top biclustering method
-# method_name = "MAK"
-method_name = "meanshift"
+method_name = "MAK"
+#method_name = "meanshift"
 
 
 #blueprints = os.system("python conf/paramexplo_blueprints.py")
