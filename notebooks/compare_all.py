@@ -11,7 +11,7 @@ import pandas as pd
 import json
 
 #from paramexplo_blueprints import methodparamsoi
-import paramexplo_blueprints
+from paramexplo_blueprints import *
 #from importlib import reload # reload
 #reload(paramexplo_blueprints)
 
@@ -25,11 +25,6 @@ method_name = "agglom" # this method runs very fast, and has the best performanc
 # method_name = "spectral_biclust" # top biclustering method
 # method_name = "MAK"
 # method_name = "meanshift"
-
-blueprints = paramexplo_blueprints.run_blueprints()
-#print(blueprints)
-methodblueprint = blueprints[method_name]
-print(methodblueprint)
 
 def score_method(scores):
     methodscores = []
