@@ -93,10 +93,10 @@ for methodname in methodnames:
     settings_name = "paramexplo/" + methodname
     settings = json.load(open("../conf/settings/{}.json".format(settings_name)))
     settings_dataset = pd.DataFrame(
-        [dict(settingid=setting["settingid"], **json.load(open("../" + setting["dataset_location"]))["params"]) for
+        [dict(settingid=setting["settingid"], **json.load(open( setting["dataset_location"]))["params"]) for
          setting in settings])
     settings_method = pd.DataFrame(
-        [dict(settingid=setting["settingid"], **json.load(open("../" + setting["method_location"]))["params"]) for
+        [dict(settingid=setting["settingid"], **json.load(open(setting["method_location"]))["params"]) for
          setting in settings])
 
     print(methodname)
