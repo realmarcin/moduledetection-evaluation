@@ -100,7 +100,10 @@ for datasetname in datasetnames:
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
         })
-json.dump(settings, open("../conf/settings/{settings_name}.json".format(settings_name=settings_name), "w"))
+print("run_and_eval outpath")
+outpath = "../conf/settings/{settings_name}.json".format(settings_name=settings_name)
+print(outpath)
+json.dump(settings, open(outpath, "w"))
 
 # %%
 
