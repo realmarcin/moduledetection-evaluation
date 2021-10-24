@@ -90,7 +90,7 @@ for datasetname in datasetnames:
         settings.append({
             "dataset_location": "../conf/datasets/" + datasetname + ".json",
             "dataset_name": datasetname,
-            "method_location": methodsetting["location"],
+            "method_location": "../"+methodsetting["location"],
             "output_folder": "../results/" + methodblueprint["type"] + "/{settings_name}/{settingid}/".format(
                 settings_name=settings_name, settingid=settingid),
             "settingid": settingid
