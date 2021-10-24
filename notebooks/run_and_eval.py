@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.insert(0, os.path.abspath("../lib/"))
-sys.path.insert(1, '../conf/')
+sys.path.insert(1, os.path.abspath("../conf/"))
 
 import json
 
@@ -135,11 +135,6 @@ from modulescomparison import ModevalKnownmodules, ModevalCoverage
 if "pool" in locals().keys():
     pool.close()
 pool = mp.Pool(mp.cpu_count()-1)
-
-if "pool" in locals().keys():
-    pool.close()
-pool = mp.Pool(mp.cpu_count()-1)
-# pool = mp.Pool(1)
 
 #%%
 
