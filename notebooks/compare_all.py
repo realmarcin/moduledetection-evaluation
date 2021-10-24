@@ -8,7 +8,9 @@ from matplotlib import pyplot as plt
 from matplotlib.pyplot import subplots
 import numpy as np
 import pandas as pd
+from itertools import product
 import json
+
 
 #from paramexplo_blueprints import methodparamsoi
 from paramexplo_blueprints import *
@@ -16,6 +18,7 @@ from paramexplo_blueprints import *
 #reload(paramexplo_blueprints)
 
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
+
 
 
 # choose the method to evaluate
