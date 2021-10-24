@@ -91,6 +91,8 @@ methodnames = ["dummy", "agglom", "ica_zscore", "spectral_biclust", "meanshift",
 finalscores = []
 for methodname in methodnames:
     settings_name = "paramexplo/" + methodname
+    print("compare_all")
+    print(settings_name)
     path ="../conf/settings/{}.json".format(settings_name)
     print(path)
     settings = json.load(open(path))
