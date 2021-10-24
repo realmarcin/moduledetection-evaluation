@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.insert(0,os.path.abspath("../lib/"))
-sys.path.insert(1, '../conf/')
+sys.path.insert(1, os.path.abspath("../conf/"))
 
 import json
 
@@ -59,10 +59,10 @@ methodblueprint = blueprints[method_name]
 
 #%%
 
-params_folder = "../conf/paramexplo/" + method_name + "/"
-if os.path.exists( params_folder):
-    shutil.rmtree(params_folder)
-os.makedirs( params_folder)
+params_folder = "conf/paramexplo/" + method_name + "/"
+if os.path.exists( "../" +params_folder):
+    shutil.rmtree("../" +params_folder)
+os.makedirs( "../" +params_folder)
 
 methodsettings = []
 method_locations = []
@@ -76,7 +76,7 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
 
     methodsettings.append(method)
 
-    json.dump(method, open( method["location"], "w"), cls=JSONExtendedEncoder)
+    json.dump(method, open("../" + method["location"], "w"), cls=JSONExtendedEncoder)
 
     method_locations.append(method["location"])
 
@@ -125,14 +125,18 @@ with open("../tmp/" + commands_location, "w") as outfile:
 
 from modulescomparison import ModevalKnownmodules, ModevalCoverage
 
+if "pool" in locals().keys():
+    pool.close()
+pool = mp.Pool(mp.cpu_count()-1)
 
 settings_filtered = [setting for setting in settings if not setting["dataset_name"].startswith("human")] # only evaluate non-human datasets
 modeval = ModevalKnownmodules(settings_filtered, baseline = True)
 
+
 #%%
 
-#modeval.run(pool)
-#modeval.save(settings_name)
+modeval.run(pool)
+modeval.save(settings_name)
 
 #%%
 

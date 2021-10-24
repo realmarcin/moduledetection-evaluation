@@ -14,7 +14,6 @@ blueprints = {
     },
     "kmedoids": {
         "staticparams": {
-            "method": "kmedoids",
             "simdist_function": "pearson_correlation"
         },
         "dynparams": {
