@@ -279,8 +279,12 @@ def modeval_coverage_worker(setting, scores, baseline, verbose=False):
     subscores = []
     for bound_name, bound_location in dataset["binding"].items():
         if bound_location.endswith(".pkl"):
+            print("modulecomparison.modeval_coverage_worker if")
+            print(bound_location)
             bound = pd.read_pickle("../" + bound_location)
         else:
+            print("modulecomparison.modeval_coverage_worker else")
+            print(bound_location)
             bound = pd.read_table("../" + bound_location, index_col=0, header=[0,1])
 
         subscores.append(modbindevalscorer(modules, bound))
