@@ -7,18 +7,10 @@ import json
 
 from util import JSONExtendedEncoder
 
-#%load_ext autoreload
-#%autoreload 2
-
-#%matplotlib inline
-from matplotlib.pyplot import *
-
 import pandas as pd
-import numpy as np
 
 import multiprocessing as mp
 
-from itertools import product
 
 import itertools
 import shutil
