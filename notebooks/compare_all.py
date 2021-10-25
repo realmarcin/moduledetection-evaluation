@@ -107,11 +107,11 @@ for methodname in methodnames:
     modeval.scores = modeval.scores.merge(settings_dataset, on="settingid").merge(settings_method, on="settingid")
     scores = scores.append(modeval.scores, ignore_index=True)
 
-    modeval = ModevalCoverage(settings_name)
-    modeval.load(settings_name)
-    modeval.scores["score"] = modeval.scores["aucodds_permuted"]
-    modeval.scores = modeval.scores.merge(settings_dataset, on="settingid").merge(settings_method, on="settingid")
-    scores = scores.append(modeval.scores, ignore_index=True)
+    #modeval = ModevalCoverage(settings_name)
+    #modeval.load(settings_name)
+    #modeval.scores["score"] = modeval.scores["aucodds_permuted"]
+    #modeval.scores = modeval.scores.merge(settings_dataset, on="settingid").merge(settings_method, on="settingid")
+    #scores = scores.append(modeval.scores, ignore_index=True)
 
     methodscores = score_method(scores)
 
