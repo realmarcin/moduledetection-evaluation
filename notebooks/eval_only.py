@@ -31,16 +31,17 @@ import paramexplo_blueprints
 
 # datasets to run
 datasetnames = [
-    "ecoli_colombos",
-    "ecoli_dream5",
-    "yeast_gpl2529",
-    "yeast_dream5",
-    "synth_ecoli_regulondb",
-    "synth_yeast_macisaac",
-    "human_tcga",
-    "human_gtex",
-    "human_seek_gpl5175",
-    "ecoli_precise2"
+    "ecoli_colombos"
+    #,
+    #"ecoli_dream5",
+    #"yeast_gpl2529",
+    #"yeast_dream5",
+    #"synth_ecoli_regulondb",
+    #"synth_yeast_macisaac",
+    #"human_tcga",
+    #"human_gtex",
+    #"human_seek_gpl5175",
+    #"ecoli_precise2"
 ]
 
 # choose the method to evaluate
@@ -83,6 +84,8 @@ for dynparam_combination in list(itertools.product(*[methodblueprint["dynparams"
     i+=1
 
 settings_name = "paramexplo/{method_name}".format(method_name=method_name)
+print("eval_only")
+print(settings_name)
 settings = []
 for datasetname in datasetnames:
     for setting_ix, methodsetting in enumerate(methodsettings):
