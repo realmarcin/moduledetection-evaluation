@@ -232,6 +232,8 @@ class ModevalCoverage:
 
     def save(self, name, full=True):
         file = "../results/modeval_coverage/"+ name+ ".tsv"
+        print("ModevalCoverage.save")
+        print(file)
         if not os.path.exists(os.path.dirname(file)):
             os.makedirs(os.path.dirname(file), exist_ok=True)
         self.scores.to_csv(file, sep="\t")
