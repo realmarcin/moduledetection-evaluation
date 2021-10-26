@@ -154,24 +154,24 @@ modeval.scores
 modeval.scores.to_csv('modeval.scores.tsv', index=False, sep="\t")
 
 
-if "pool" in locals().keys():
-    pool.close()
-pool = mp.Pool(mp.cpu_count()-1)
+#if "pool" in locals().keys():
+#    pool.close()
+#pool = mp.Pool(mp.cpu_count()-1)
 
 #%%
 
-settings_filtered = settings #[setting for setting in settings if setting["dataset_name"].startswith("human")] # only evaluate human datasets
-modeval = ModevalCoverage(settings_filtered, baseline = True)
+#settings_filtered = settings #[setting for setting in settings if setting["dataset_name"].startswith("human")] # only evaluate human datasets
+#modeval = ModevalCoverage(settings_filtered, baseline = True)
 
 #%%
 
-modeval.run(pool)
-modeval.save(settings_name)
+#modeval.run(pool)
+#modeval.save(settings_name)
 
-modeval.load(settings_name)
+#modeval.load(settings_name)
 
 #%%
 
-modeval.scores
-modeval.scores.to_csv('modeval_coverage.scores.tsv', index=False, sep="\t")
+#modeval.scores
+#modeval.scores.to_csv('modeval_coverage.scores.tsv', index=False, sep="\t")
 
