@@ -69,6 +69,9 @@ class ModulesComparison():
                 scores["relevances"] = self.jaccards.max(0)
             scores["recovery"] = scores["recoveries"].mean()
             scores["relevance"] = scores["relevances"].mean()
+            print()
+            print("recovery "+scores["recovery"]+"\trelevance "+scores["relevance"]+"\tF1rr "+scores["F1rr"] )
+
             scores["F1rr"] = harmonic_mean([scores["recovery"], scores["relevance"]])
 
         # recall and precision
