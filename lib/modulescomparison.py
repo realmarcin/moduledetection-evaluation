@@ -167,7 +167,9 @@ def modevalworker(setting, scores, baseline):
     settingscores = []
 
     for regnet_name in dataset["knownmodules"].keys():
+        print("modevalworker "+regnet_name)
         for knownmodules_name in dataset["knownmodules"][regnet_name].keys():
+            print("modevalworker " + knownmodules_name)
             # baselinesoi = {
             #     baseline_name:baseline.ix[(dataset["baselinename"], regnet_name, knownmodules_name)].to_dict()
             #     for baseline_name, baseline in baselines.items()
