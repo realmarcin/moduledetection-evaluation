@@ -184,7 +184,7 @@ def modevalworker(setting, scores, baseline):
 
             knownmodules_location = dataset["knownmodules"][regnet_name][knownmodules_name]
             knownmodules = Modules(json.load(open("../" + knownmodules_location)))
-
+            print(knownmodules)
             settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi)
 
             settingscores_goldstandard["settingid"] = setting["settingid"]
