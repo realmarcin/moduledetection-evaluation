@@ -159,7 +159,8 @@ def modevalworker(setting, scores, baseline):
         baselines = pd.read_csv("../results/modeval_knownmodules/baseline.tsv", index_col=[0, 1, 2])
 
     modules = Modules(json.load(open(setting["output_folder"] + "modules.json")))
-
+    print("modevalworker modules")
+    print(modules)
     runinfo = json.load(open(setting["output_folder"] + "runinfo.json"))
 
     dataset = json.load(open(setting["dataset_location"]))
