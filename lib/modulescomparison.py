@@ -53,6 +53,8 @@ class ModulesComparison():
         else:
             self.jaccards = np.zeros((1,1))
 
+        print("jaccards "+str(self.jaccards.shape))
+
     def score(self, baselines, scorenames = ["rr", "rp"]):
         """
         Scores two sets of modules
@@ -62,6 +64,7 @@ class ModulesComparison():
 
         # recovery and relevance
         if "rr" in scorenames:
+            print("type "+type(self.jaccards))
             if (self.membershipsA.shape[1] == 0) or (self.membershipsB.shape[1] == 0):
                 scores["recoveries"] = scores["relevances"] = np.zeros(1)
             else:
