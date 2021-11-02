@@ -64,7 +64,7 @@ class ModulesComparison():
 
         # recovery and relevance
         if "rr" in scorenames:
-            print("type "+type(self.jaccards))
+            print("type "+str(type(self.jaccards)))
             if (self.membershipsA.shape[1] == 0) or (self.membershipsB.shape[1] == 0):
                 scores["recoveries"] = scores["relevances"] = np.zeros(1)
             else:
