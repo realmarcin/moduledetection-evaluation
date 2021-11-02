@@ -71,8 +71,8 @@ class ModulesComparison():
                 scores["recoveries"] = self.jaccards.max(1)
                 scores["relevances"] = self.jaccards.max(0)
 
-            print("recoveries len "+len(scores["recoveries"]))
-            print("relevances len "+len(scores["relevances"]))
+            print("recoveries len "+str(len(scores["recoveries"])))
+            print("relevances len "+str(len(scores["relevances"])))
 
             scores["recovery"] = scores["recoveries"].mean()
             scores["relevance"] = scores["relevances"].mean()
