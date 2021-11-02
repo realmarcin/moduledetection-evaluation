@@ -64,7 +64,6 @@ class ModulesComparison():
 
         # recovery and relevance
         if "rr" in scorenames:
-            print("type "+str(type(self.jaccards)))
             if (self.membershipsA.shape[1] == 0) or (self.membershipsB.shape[1] == 0):
                 scores["recoveries"] = scores["relevances"] = np.zeros(1)
             else:
@@ -73,6 +72,11 @@ class ModulesComparison():
 
             print("recoveries len "+str(len(scores["recoveries"])))
             print("relevances len "+str(len(scores["relevances"])))
+
+            print("recoveries")
+            print(scores["recoveries"])
+            print("recoveries")
+            print(scores["relevances"])
 
             scores["recovery"] = scores["recoveries"].mean()
             scores["relevance"] = scores["relevances"].mean()
