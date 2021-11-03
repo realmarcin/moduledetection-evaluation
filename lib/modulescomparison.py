@@ -217,7 +217,7 @@ def modevalscorer(modules, knownmodules, baselines=None):
     allgenes = sorted(list({g for module in knownmodules for g in module}))
     filteredmodules = modules.filter_retaingenes(allgenes).filter_size(5)
     comp = ModulesComparison(filteredmodules, knownmodules, allgenes)
-    print("comp "+str(type(comp))))
+    print("comp "+str(type(comp)))
 
     current_time = time.time()
     outpath = current_time+'.out'
