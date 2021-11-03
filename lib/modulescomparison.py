@@ -217,6 +217,10 @@ def modevalscorer(modules, knownmodules, baselines=None):
     allgenes = sorted(list({g for module in knownmodules for g in module}))
     filteredmodules = modules.filter_retaingenes(allgenes).filter_size(5)
     comp = ModulesComparison(filteredmodules, knownmodules, allgenes)
+    print("comp "+type(comp))
+
+    current_time = time.time()
+    np.savetxt(current_time+'.out', comp.jaccards, delimiter='\t')
     settingscores = comp.score(baselines)
 
     return settingscores
