@@ -220,7 +220,7 @@ def modevalscorer(modules, knownmodules, baselines=None):
     print("comp "+str(type(comp)))
 
     current_time = time.time()
-    outpath = current_time+'.out'
+    outpath = str(current_time)+'.out'
     print(outpath)
     np.savetxt(outpath, comp.jaccards, delimiter='\t')
     settingscores = comp.score(baselines)
