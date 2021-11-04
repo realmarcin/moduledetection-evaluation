@@ -200,7 +200,7 @@ def modevalworker(setting, scores, baseline):
             knownmodules = Modules(json.load(open("../" + knownmodules_location)))
             #print(knownmodules)
             print("module set sizes: known :new "+str(len(knownmodules))+"\t"+str(len(modules)))
-            settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi, regnetname, knownmodules_name)
+            settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi, regnet_name, knownmodules_name)
 
             settingscores_goldstandard["settingid"] = setting["settingid"]
 
@@ -214,7 +214,7 @@ def modevalworker(setting, scores, baseline):
 
     scores[setting["settingid"]] = settingscores
 
-def modevalscorer(modules, knownmodules, regnetname, knownmodules_name, baselines=None):
+def modevalscorer(modules, knownmodules, regnet_name, knownmodules_name, baselines=None):
     allgenes = sorted(list({g for module in knownmodules for g in module}))
     filteredmodules = modules.filter_retaingenes(allgenes).filter_size(5)
     comp = ModulesComparison(filteredmodules, knownmodules, allgenes)
