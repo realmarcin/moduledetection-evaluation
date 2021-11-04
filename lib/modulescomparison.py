@@ -141,6 +141,7 @@ class ModevalKnownmodules:
         params_pool = []
 
         for setting in self.settings:
+            print("setting "+setting)
             params_pool.append((setting, scores, self.baseline))
 
         self.params_pool = params_pool
@@ -199,7 +200,7 @@ def modevalworker(setting, scores, baseline):
             knownmodules = Modules(json.load(open("../" + knownmodules_location)))
             #print(knownmodules)
             print("module set sizes: known :new "+str(len(knownmodules))+"\t"+str(len(modules)))
-            settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi)
+            settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi, regnetname, knownmodules_name)
 
             settingscores_goldstandard["settingid"] = setting["settingid"]
 
