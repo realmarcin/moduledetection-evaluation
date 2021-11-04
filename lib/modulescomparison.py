@@ -141,7 +141,7 @@ class ModevalKnownmodules:
         params_pool = []
 
         for setting in self.settings:
-            print("setting "+setting)
+            print("setting "+str(setting))
             params_pool.append((setting, scores, self.baseline))
 
         self.params_pool = params_pool
