@@ -200,7 +200,7 @@ def modevalworker(setting, scores, baseline):
             knownmodules = Modules(json.load(open("../" + knownmodules_location)))
             #print(knownmodules)
             print("module set sizes: known :new "+str(len(knownmodules))+"\t"+str(len(modules)))
-            settingscores_goldstandard = modevalscorer(modules, knownmodules, baselineoi, regnet_name, knownmodules_name)
+            settingscores_goldstandard = modevalscorer(modules, knownmodules, regnet_name, knownmodules_name, baselineoi)
 
             settingscores_goldstandard["settingid"] = setting["settingid"]
 
