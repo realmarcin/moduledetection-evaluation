@@ -214,7 +214,7 @@ def modevalworker(setting, scores, baseline):
 
     scores[setting["settingid"]] = settingscores
 
-def modevalscorer(modules, knownmodules, baselines=None, regnetname, knownmodules_name):
+def modevalscorer(modules, knownmodules, regnetname, knownmodules_name, baselines=None):
     allgenes = sorted(list({g for module in knownmodules for g in module}))
     filteredmodules = modules.filter_retaingenes(allgenes).filter_size(5)
     comp = ModulesComparison(filteredmodules, knownmodules, allgenes)
