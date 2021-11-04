@@ -222,7 +222,7 @@ def modevalscorer(modules, knownmodules, baselines=None):
     current_time = time.time()
     outpath = str(current_time)+'.out'
     print(outpath)
-    np.savetxt(outpath, comp.jaccards, delimiter='\t', fmt='{:+.3f}')
+    np.savetxt(outpath, comp.jaccards, delimiter='\t', fmt='%.3f')
     settingscores = comp.score(baselines)
 
     return settingscores
