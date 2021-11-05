@@ -218,15 +218,15 @@ def modevalscorer(modules, knownmodules, regnet_name, knownmodules_name, baselin
     allgenes = sorted(list({g for module in knownmodules for g in module}))
     filteredmodules = modules.filter_retaingenes(allgenes).filter_size(5)
     comp = ModulesComparison(filteredmodules, knownmodules, allgenes)
-    print("comp "+str(type(comp)))
+    #print("comp "+str(type(comp)))
 
     current_time = time.time()
     #outpath = str(current_time)+'.out'
-    tmpstr = knownmodules_name.split("\t")
+    tmpstr = knownmodules_name.split("/")
     method = tmpstr[-2]
     #outpath = str(current_time)+'.out'
     outpath = method+"__"+regnet_name+".out"
-    print(outpath)
+    #print(outpath)
     np.savetxt(outpath, comp.jaccards, delimiter='\t', fmt='%.3f')
     settingscores = comp.score(baselines)
 
