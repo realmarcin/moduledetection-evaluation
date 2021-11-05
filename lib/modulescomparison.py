@@ -223,11 +223,11 @@ def modevalscorer(modules, knownmodules, regnet_name, method_location, baselines
     current_time = time.time()
     #outpath = str(current_time)+'.out'
     tmpstr = method_location.split("/")
-    print(tmpstr)
+    #print(tmpstr)
     method = tmpstr[-2]
     #outpath = str(current_time)+'.out'
     outpath = method+"__"+regnet_name+".out"
-    #print(outpath)
+    print(outpath)
     np.savetxt(outpath, comp.jaccards, delimiter='\t', fmt='%.3f')
     settingscores = comp.score(baselines)
 
