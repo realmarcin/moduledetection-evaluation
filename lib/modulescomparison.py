@@ -223,6 +223,7 @@ def modevalscorer(modules, knownmodules, regnet_name, knownmodules_name, baselin
     current_time = time.time()
     #outpath = str(current_time)+'.out'
     tmpstr = knownmodules_name.split("/")
+    print(tmpstr)
     method = tmpstr[-2]
     #outpath = str(current_time)+'.out'
     outpath = method+"__"+regnet_name+".out"
