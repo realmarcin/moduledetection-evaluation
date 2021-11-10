@@ -228,7 +228,7 @@ def modevalscorer(modules, knownmodules, regnet_name, method_location, baselines
     #outpath = str(current_time)+'.out'
     outpath = method+"__"+regnet_name+".out"
     print(outpath)
-    np.savetxt(outpath, comp.jaccards, delimiter='\t', fmt='%.3f')
+    np.savetxt(outpath, comp.jaccards, delimiter='\t')#, fmt='%.3f')
     settingscores = comp.score(baselines)
 
     return settingscores
